@@ -17,13 +17,25 @@ export function getPlanetsWithMassValue(data, number) {
   // });
 
   // return planetNames;
-  const planetMass = data.planets.filter(function(planet) {
-    return planet.massValue >= number;
-  }).map(function(planet) {
-    return planet.name
-  });
 
-  return planetMass;
+  // const planetMass = data.planets.filter(function(planet) {
+  //   return planet.massValue >= number;
+  // }).map(function(planet) {
+  //   return planet.name
+  // });
+
+  // return planetMass;
+
+  const planetNames = [];
+
+  for (let i = 0; i < data.planets.length; i++) {
+    const planet = data.planets[i];
+    if (planet.massValue >= number) {
+      planetNames.push(planet.name);
+    }
+  }
+
+  return planetNames;
 }
 
 

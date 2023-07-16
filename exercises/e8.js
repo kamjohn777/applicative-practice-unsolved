@@ -26,12 +26,27 @@ export function findPlanetNameByMoon(data, moonName) {
   //   return null;
   // }
 
-  for (const planet of data.planets) {
-    if (planet.moons.includes(moonName)) {
+  // for (const planet of data.planets) {
+  //   if (planet.moons.includes(moonName)) {
+  //     return planet.name;
+  //   }
+  //   return null;
+  // }
+
+//   const planet = data.planets.find((planet) =>
+//   planet.moons.some((moon) => moon.name === moonName)
+// );
+
+// return planet ? planet.name : null;
+
+for (const planet of data.planets) {
+  for (const moon of planet.moons) {
+    if (moon.name.toLowerCase() === moonName.toLowerCase()) {
       return planet.name;
     }
-    return null;
   }
+}
+return null;
 }
 
 
