@@ -6,6 +6,12 @@ import { data } from "../data/data";
 
 export function getEarthData(data) {
   // Your code goes here...
+  for (let i = 0; i < data.planets.length; i++) {
+    if (data.planets[i].name === "Earth") {
+      return data.planets[i];
+    }
+  }
+  return null; 
 }
 
 
