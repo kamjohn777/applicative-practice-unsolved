@@ -12,12 +12,27 @@ export function allPlanetsMoonsCount(data) {
 
   // return sumOfAllMoons;
 
-  let sumOfAllMoons = 0; 
+  // let sumOfAllMoons = 0; 
 
-  for (let i = 0; i < data.plnaets.length; i++) {
-    const planet = data.planets[i];
-    sumOfAllMoons += planet.moons.length;
-  }
+  // for (let i = 0; i < data.planets.length; i++) {
+  //   const planet = data.planets[i];
+  //   sumOfAllMoons += planet.moons.length;
+  // }
+  // return sumOfAllMoons;
+  // const sumOfAllMoons = data.planets.reduce(function (acc, planet) {
+  //   return acc + planet.moons.length;
+  // }, 0);
+
+  // return sumOfAllMoons;
+
+  const sumOfAllMoons = data.planets.reduce(function (acc, planet) {
+    if (planet.moons && Array.isArray(planet.moons)) {
+      return acc + planet.moons.length;
+    } else {
+      return acc;
+    }
+  }, 0);
+
   return sumOfAllMoons;
 }
 

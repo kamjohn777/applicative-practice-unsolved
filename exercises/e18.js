@@ -31,9 +31,26 @@ export function getGreatestDiscoveryYear(data) {
 
 
 
-  const yearWithMaxAsteroids = maxBy(data, (year) => year.discoveries.length);
-  return yearWithMaxAsteroids.year;
+  // const yearWithMaxAsteroids = maxBy(data, (year) => year.discoveries.length);
+  // return yearWithMaxAsteroids.year;
 
+  // const yearWithMaxAsteroids = data.reduce((maxYear, currentYear) => {
+  //   if (currentYear.discoveries.length > maxYear.discoveries.length) {
+  //     return currentYear;
+  //   }
+  //   return maxYear;
+  // });
+
+  // return yearWithMaxAsteroids.year;
+
+  const yearWithMaxAsteroids = data.reduce((maxYear, currentYear) => {
+    if (currentYear.discoveries.length > maxYear.discoveries.length) {
+      return currentYear;
+    }
+    return maxYear;
+  }, data[0]);
+
+  return yearWithMaxAsteroids.year;
 }
 
 // === TEST YOURSELF ===

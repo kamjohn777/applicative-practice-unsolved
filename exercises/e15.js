@@ -16,16 +16,26 @@ export function getPlanetsWithNoMoons(data) {
 
   // return plnaetNames;
 
-  const noMoons = [];
+  // const noMoons = [];
 
-  for (let i = 0; i < data.planets.length; i++) {
-    const planet = data.planets[i];
-    if (!planet.moons || planet.moons.length === 0) {
-      noMoons.push(planet.name);
-    }
-  }
+  // for (let i = 0; i < data.planets.length; i++) {
+  //   const planet = data.planets[i];
+  //   if (!planet.moons || planet.moons.length === 0) {
+  //     noMoons.push(planet.name);
+  //   }
+  // }
 
-  return noMoons;
+  // return noMoons;
+
+  const noMoons = data.planets.filter(function(planet) {
+    return !planet.moons || planet.moons.length === 0;
+  });
+
+  const planetNames = noMoons.map(function(planet) {
+    return planet.name;
+  });
+
+  return planetNames;
 }
 
 

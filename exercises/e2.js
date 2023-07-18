@@ -6,15 +6,19 @@ import { data } from "../data/data";
 
 export function getAsteroidNames(data) {
   // Your code goes here...
-  let nameOfAsteroids = [];
+//   let nameOfAsteroids = [];
 
-  for (let i = 0; i < data.asteroids.length; i++) {
-     nameOfAsteroids.push(data.asteroids[i].name);
-  }
-  return nameOfAsteroids;
+//   for (let i = 0; i < data.asteroids.length; i++) {
+//      nameOfAsteroids.push(data.asteroids[i].name);
+//   }
+//   return nameOfAsteroids;
+
+return data.asteroids.map(function(asteroid) {
+  return asteroid.name;
+});
 }
 const asteroidNames = getAsteroidNames(data);
-console.log(asteroidNames);
+// console.log(asteroidNames);
 
 
 // === TEST YOURSELF ===

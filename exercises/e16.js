@@ -11,13 +11,18 @@
 
 export function find(array, callback) {
   // Your code goes here...
-  for (let i = 0; i < array.length; i++) {
-    if (callback(array[i], i, array)) {
-      return array[i];
-    }
-  }
+  // for (let i = 0; i < array.length; i++) {
+  //   if (callback(array[i], i, array)) {
+  //     return array[i];
+  //   }
+  // }
 
-  return undefined;
+  // return undefined;
+
+  const filteredArray = array.find(callback);
+  // return filteredArray.pop();
+  const index = array.findIndex(callback);
+  return index !== -1 ? array[index] : undefined;
 }
 
 

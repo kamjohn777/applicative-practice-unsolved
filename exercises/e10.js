@@ -12,13 +12,17 @@ export function getAsteroidDataByName(data, asteroidName) {
 
   // return asteroidInfo;
 
-  for (let i = 0; i < data.asteroids.length; i++) {
-    const asteroid = data.asteroids[i];
-    if (asteroid.name === asteroidName) {
-      return asteroid;
-    }
-  }
-  return null;
+  // for (let i = 0; i < data.asteroids.length; i++) {
+  //   const asteroid = data.asteroids[i];
+  //   if (asteroid.name === asteroidName) {
+  //     return asteroid;
+  //   }
+  // }
+  // return null;
+
+  return data.asteroids.find(function(asteroid) {
+    return asteroid.name === asteroidName;
+  });
 }
 
 
