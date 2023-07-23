@@ -6,13 +6,6 @@ import { data } from "../data/data";
 
 export function getFirstPlanetName(data) {
   // Your code goes here...
-  // const planets = data.planets;
-
-  // for(let i = 0; i < data.length; i++) {
-    
-  // }
-  //console.log(planets);
-  // return planets[0].name;
   const firstPlanet = data.planets[0];
   return firstPlanet.name;
 
