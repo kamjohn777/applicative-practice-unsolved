@@ -1,3 +1,4 @@
+import { data } from "../data/data";
 /**
  * SPACE DATA EXERCISE 18
  * Return the year with the greatest number of Asteroids discoveries
@@ -5,7 +6,7 @@
  */
 
 
-import { maxBy } from './your-maxBy-implementation';
+// import { maxBy } from './your-maxBy-implementation';
 
 
 
@@ -43,14 +44,30 @@ export function getGreatestDiscoveryYear(data) {
 
   // return yearWithMaxAsteroids.year;
 
-  const yearWithMaxAsteroids = data.reduce((maxYear, currentYear) => {
-    if (currentYear.discoveries.length > maxYear.discoveries.length) {
-      return currentYear;
-    }
-    return maxYear;
-  }, data[0]);
+  // const yearWithMaxAsteroids = data.reduce((maxYear, currentYear) => {
+  //   if (currentYear.discoveries.length > maxYear.discoveries.length) {
+  //     return currentYear;
+  //   }
+  //   return maxYear;
+  // }, data[0]);
 
-  return yearWithMaxAsteroids.year;
+  // return yearWithMaxAsteroids.year;
+
+  const yearCounts = data.asteroids.reduce((counts, asteroid) => {
+    const year = asteroid.discoveryYear;
+    counts[year] = (counts[year] || 0) + 1;
+    return counts;
+  }, {}); 
+
+  let maxYear = null;
+  let maxCount = 0;
+  for (const year in yearCounts) {
+    if (yearCounts[year] > maxCount) {
+      maxCount = yearCounts[year];
+      maxYear = parseInt(year);
+    }
+  }
+  return maxYear;
 }
 
 // === TEST YOURSELF ===
