@@ -6,15 +6,10 @@ import { data } from "../data/data";
 
 export function allPlanetsMoonsCount(data) {
   // Your code goes here...
-  const sumOfAllMoons = data.planets.reduce(function (acc, planet) {
-    if (planet.moons && Array.isArray(planet.moons)) {
-      return acc + planet.moons.length;
-    } else {
-      return acc;
-    }
-  }, 0);
+  const sumOfAllMoons = data.planets.reduce((acc, planet) => acc + (planet.moons?.length || 0), 0);
 
-  return sumOfAllMoons;
+return sumOfAllMoons;
+
 }
 
 
